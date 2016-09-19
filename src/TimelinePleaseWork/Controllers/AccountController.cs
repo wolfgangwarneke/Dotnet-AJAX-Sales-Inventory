@@ -163,6 +163,52 @@ namespace TimelinePleaseWork.Controllers
         }
 
         //
+        // GET: /Account/Upgrade
+        [HttpGet]
+        public IActionResult Upgrade(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        //
+        // POST: /Account/Upgrade
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Upgrading(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (ModelState.IsValid)
+            {
+                var user = await this._userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    if (!_roleManager.RoleExistsAsync("MegaUser").Result)
+                    {
+                        IdentityRole role = new IdentityRole();
+                        role.Name = "MegaUser";
+                        IdentityResult roleResult = _roleManager.
+                        CreateAsync(role).Result;
+                        if (!roleResult.Succeeded)
+                        {
+                            ModelState.AddModelError("",
+                             "Error while creating role!");
+                            return View();
+                        }
+                    }
+
+                    _userManager.AddToRoleAsync(user,
+                                 "MegaUser").Wait();
+                    _logger.LogInformation(3, "User upgraded to a MegaUser account");
+                    return RedirectToLocal(returnUrl);
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View();
+        }
+
+        //
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]

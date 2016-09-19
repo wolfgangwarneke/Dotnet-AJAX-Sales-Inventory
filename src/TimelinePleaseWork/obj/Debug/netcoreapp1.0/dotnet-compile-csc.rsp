@@ -243,6 +243,7 @@
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Models\AccountViewModels\RegisterViewModel.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Models\AccountViewModels\ResetPasswordViewModel.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Models\AccountViewModels\SendCodeViewModel.cs"
+"C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Models\AccountViewModels\UpgradeViewModel.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Models\AccountViewModels\VerifyCodeViewModel.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Models\ManageViewModels\AddPhoneNumberViewModel.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Models\ManageViewModels\ChangePasswordViewModel.cs"

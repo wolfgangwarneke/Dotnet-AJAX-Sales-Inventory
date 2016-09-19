@@ -1,0 +1,9 @@
+﻿
+
+@inject UserManager<ApplicationUser> UserManager
+
+<h3>Hey @UserManager.GetUserName(User), would you like to upgrade your account?</h3>
+@using (Html.BeginForm("Upgrading", "Account"))
+{
+    <input type="submit" class="btn btn-default" value="Upgrade" />
+}
