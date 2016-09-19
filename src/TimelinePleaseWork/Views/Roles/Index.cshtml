@@ -1,0 +1,7 @@
+﻿<h1>Roles Index</h1>
+<p>@Html.ActionLink("New role", "Create")</p>
+
+@foreach (var role in Model)
+{
+    <p>@role.Name</p>
+}

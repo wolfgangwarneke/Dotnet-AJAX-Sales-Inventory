@@ -231,6 +231,7 @@
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Controllers\AccountController.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Controllers\HomeController.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Controllers\ManageController.cs"
+"C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Controllers\RolesController.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Data\ApplicationDbContext.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Data\Migrations\00000000000000_CreateIdentitySchema.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs"
@@ -255,3 +256,4 @@
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Services\IEmailSender.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Services\ISmsSender.cs"
 "C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\Services\MessageServices.cs"
+"C:\Users\Wolfgang\Documents\Visual Studio 2015\Projects\TimelinePleaseWork\src\TimelinePleaseWork\ViewModels\RoleViewModel.cs"
