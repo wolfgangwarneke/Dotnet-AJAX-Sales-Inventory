@@ -6,9 +6,22 @@
 
 <h1>Manager says what</h1>
 <button class="eventDetails" data-id=40>Event Details</button>
-
-<div id="mainDisplay">
-@Html.Partial("partialSales.cshtml")
+<div class="row">
+    <div class="col-md-2" id="menu">
+        <h3>Actions</h3>
+        <ul>
+            <li class="inventory">Inventory</li>
+            <li class="sales">Sales</li>
+            <li class="revenue">Revenue</li>
+            <li class="employees">Employees</li>
+        </ul>
+    </div>
+    <div class="col-md-5" id="leftDisplay">
+        <h1>Your main results will display here</h1>
+    </div>
+    <div class="col-md-5" id="rightDisplay">
+        <h1>Your detail results will display here</h1>
+    </div>
 </div>
 
 see inventory AND costs for inventory items
@@ -30,9 +43,15 @@ see the total balance sheet for the entire store (revenue - costs = profit)
             var inventoryItemId = $(this).data('id');
             $.get('@Url.Action("ItemDetails")', { id: inventoryItemId }, function (result) {
                 console.log(result);
-                $('#mainDisplay').html(result);
+                $('#rightDisplay').html(result);
             }, 'html');
-
+        });
+        $('.inventory').click(function () {
+            var inventoryItemId = $(this).data('id');
+            $.get('@Url.Action("Inventory")', { id: inventoryItemId }, function (result) {
+                console.log(result);
+                $('#leftDisplay').html(result);
+            }, 'html');
         });
         $('.new-event').submit(function (event) {
             event.preventDefault();

@@ -1,0 +1,13 @@
+﻿<hr />
+<h1>Inventory Items</h1>
+@foreach (var inventoryItem in Model)
+{
+    <div>
+        @inventoryItem.Category |
+        @inventoryItem.Quantity |
+        @inventoryItem.ItemId |
+        @inventoryItem.Item.Name
+    </div>
+}
+
+<hr />
