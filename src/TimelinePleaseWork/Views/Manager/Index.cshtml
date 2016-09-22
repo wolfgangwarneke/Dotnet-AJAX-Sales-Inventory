@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Manager says what</h1>
+<button class="eventDetails" data-id=40>Event Details</button>
+
+<div id="mainDisplay">
+@Html.Partial("partialSales.cshtml")
+</div>
+
+see inventory AND costs for inventory items
+review and edit sales by all sales associates, to correct for errors
+view sales associate comments on sales
+see commission for all sales associates
+add or remove sales associates
+add new inventory for sale, including item cost and sale price
+see the total balance sheet for the entire store (revenue - costs = profit)
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log('ready');
+        $('#clickTest').submit(function (event) {
+            event.preventDefault();
+            alert('TEST!');
+        });
+        $('.itemDetails').click(function () {
+            var inventoryItemId = $(this).data('id');
+            $.get('@Url.Action("ItemDetails")', { id: inventoryItemId }, function (result) {
+                console.log(result);
+                $('#mainDisplay').html(result);
+            }, 'html');
+
+        });
+        $('.new-event').submit(function (event) {
+            event.preventDefault();
+            console.log($(this).serialize());
+            $.ajax({
+                url: '@Url.Action("NewEvent")',
+                type: 'POST',
+                dataType: 'json',
+                data: $(this).serialize(),
+                success: function (result) {
+                    //var resultMessage = 'You\'ve added a new destination to the database!<br>Id: ' + result.id + '<br>City: ' + result.city + '<br>Country: ' + result.country;
+                    alert('success!');
+                    $('#result6').html(result.title + " event was created");
+                }
+            });
+        });
+    });
+</script>

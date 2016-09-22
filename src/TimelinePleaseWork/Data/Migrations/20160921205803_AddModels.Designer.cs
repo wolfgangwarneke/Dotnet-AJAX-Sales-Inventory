@@ -8,9 +8,10 @@ using TimelinePleaseWork.Data;
 namespace TimelinePleaseWork.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160921205803_AddModels")]
+    partial class AddModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -179,14 +180,9 @@ namespace TimelinePleaseWork.Data.Migrations
 
                     b.Property<string>("Category");
 
-                    b.Property<int>("ItemId");
-
                     b.Property<int>("Quantity");
 
                     b.HasKey("InventoryItemId");
-
-                    b.HasIndex("ItemId")
-                        .IsUnique();
 
                     b.ToTable("InventoryItems");
                 });
@@ -200,9 +196,14 @@ namespace TimelinePleaseWork.Data.Migrations
 
                     b.Property<string>("Description");
 
+                    b.Property<int>("InventoryItemId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("ItemId");
+
+                    b.HasIndex("InventoryItemId")
+                        .IsUnique();
 
                     b.ToTable("Items");
                 });
@@ -286,11 +287,11 @@ namespace TimelinePleaseWork.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("TimelinePleaseWork.Models.InventoryItem", b =>
+            modelBuilder.Entity("TimelinePleaseWork.Models.Item", b =>
                 {
-                    b.HasOne("TimelinePleaseWork.Models.Item", "Item")
-                        .WithOne("InventoryItem")
-                        .HasForeignKey("TimelinePleaseWork.Models.InventoryItem", "ItemId")
+                    b.HasOne("TimelinePleaseWork.Models.InventoryItem", "InventoryItem")
+                        .WithOne("Item")
+                        .HasForeignKey("TimelinePleaseWork.Models.Item", "InventoryItemId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

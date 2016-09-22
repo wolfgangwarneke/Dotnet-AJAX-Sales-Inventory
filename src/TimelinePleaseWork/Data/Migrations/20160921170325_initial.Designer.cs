@@ -8,9 +8,10 @@ using TimelinePleaseWork.Data;
 namespace TimelinePleaseWork.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160921170325_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -172,83 +173,6 @@ namespace TimelinePleaseWork.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("TimelinePleaseWork.Models.InventoryItem", b =>
-                {
-                    b.Property<int>("InventoryItemId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Category");
-
-                    b.Property<int>("ItemId");
-
-                    b.Property<int>("Quantity");
-
-                    b.HasKey("InventoryItemId");
-
-                    b.HasIndex("ItemId")
-                        .IsUnique();
-
-                    b.ToTable("InventoryItems");
-                });
-
-            modelBuilder.Entity("TimelinePleaseWork.Models.Item", b =>
-                {
-                    b.Property<int>("ItemId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CostCents");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("ItemId");
-
-                    b.ToTable("Items");
-                });
-
-            modelBuilder.Entity("TimelinePleaseWork.Models.Sale", b =>
-                {
-                    b.Property<int>("SaleId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Comment");
-
-                    b.Property<DateTime>("Timestamp");
-
-                    b.Property<int>("UserId");
-
-                    b.Property<string>("UserId1");
-
-                    b.HasKey("SaleId");
-
-                    b.HasIndex("UserId1");
-
-                    b.ToTable("Sales");
-                });
-
-            modelBuilder.Entity("TimelinePleaseWork.Models.Transaction", b =>
-                {
-                    b.Property<int>("TransactionId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ItemId");
-
-                    b.Property<string>("Note");
-
-                    b.Property<int>("Quantity");
-
-                    b.Property<int>("SaleId");
-
-                    b.HasKey("TransactionId");
-
-                    b.HasIndex("ItemId");
-
-                    b.HasIndex("SaleId");
-
-                    b.ToTable("Transactions");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole")
@@ -283,34 +207,6 @@ namespace TimelinePleaseWork.Data.Migrations
                     b.HasOne("TimelinePleaseWork.Models.ApplicationUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TimelinePleaseWork.Models.InventoryItem", b =>
-                {
-                    b.HasOne("TimelinePleaseWork.Models.Item", "Item")
-                        .WithOne("InventoryItem")
-                        .HasForeignKey("TimelinePleaseWork.Models.InventoryItem", "ItemId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TimelinePleaseWork.Models.Sale", b =>
-                {
-                    b.HasOne("TimelinePleaseWork.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId1");
-                });
-
-            modelBuilder.Entity("TimelinePleaseWork.Models.Transaction", b =>
-                {
-                    b.HasOne("TimelinePleaseWork.Models.Item", "Item")
-                        .WithMany()
-                        .HasForeignKey("ItemId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("TimelinePleaseWork.Models.Sale", "Sale")
-                        .WithMany("Transactions")
-                        .HasForeignKey("SaleId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

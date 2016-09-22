@@ -1,0 +1,30 @@
+@model TimelinePleaseWork.Models.InventoryItem
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InventoryItem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.InventoryItemId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

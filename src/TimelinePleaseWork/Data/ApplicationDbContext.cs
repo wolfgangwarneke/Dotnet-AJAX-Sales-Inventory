@@ -10,6 +10,11 @@ namespace TimelinePleaseWork.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public virtual DbSet<InventoryItem> InventoryItem { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
+
         public ApplicationDbContext()
         {
         }
